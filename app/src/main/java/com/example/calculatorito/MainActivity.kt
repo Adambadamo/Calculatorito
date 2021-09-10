@@ -37,14 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         eqButton.setOnClickListener{
             if(expression.text.isNotEmpty()){
-            calculate(expression.text.toString())}
+            calculate()}
         }
 
         delButton.setOnClickListener {
 
-            var string = expression.text.toString()
+            val string = expression.text.toString()
             if(string.isNotEmpty()){
-                expression.text = expression.text.substring(0,string.length-1);
+                expression.text = expression.text.substring(0,string.length-1)
             }
 
         }
@@ -56,15 +56,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun expressionBuilder( string:String) {
+    private fun expressionBuilder( string:String) {
 
         expression.append(string)
 
     }
 
-    fun calculate(string: String){
+    private fun calculate(){
 
-        var evaluator = DoubleEvaluator()
+        val evaluator = DoubleEvaluator()
         result.text = evaluator.evaluate(expression.text.toString()).toString()
     }
 
